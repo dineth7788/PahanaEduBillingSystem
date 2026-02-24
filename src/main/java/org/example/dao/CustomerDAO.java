@@ -32,4 +32,31 @@ public class CustomerDAO {
         }
         return isSuccess;
     }
+
+    // Method to find a customer by their Telephone Number
+    public Customer getCustomerByTelephone(String telephone) {
+        Customer customer = null;
+        Connection conn = DatabaseConnection.getInstance().getConnection();
+
+        String sql = "SELECT * FROM Customer WHERE telephone_number = ?";
+
+        try {
+            java.sql.PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, telephone);
+
+            java.sql.ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                customer = new Customer();
+                customer.setAccountNumber(rs.getInt("account_number"));
+                customer.setName(rs.getString("name"));
+                customer.setAddress(rs.getString("address"));
+                customer.setTelephoneNumber(rs.getString("telephone_number"));
+                customer.setUnitsConsumed(rs.getInt("units_consumed"));
+            }
+        } catch (java.sql.SQLException e) {
+            System.out.println("Error fetching customer: " + e.getMessage());
+        }
+        return customer;
+    }
 }
