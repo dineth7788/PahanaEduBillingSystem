@@ -12,7 +12,7 @@ public class DatabaseConnection {
     // Database credentials (adjust these if your MySQL setup is different)
     private final String URL = "jdbc:mysql://localhost:3306/pahana_edu";
     private final String USER = "root";
-    private final String PASSWORD = "";
+    private final String PASSWORD = "admin123";
 
     // 2. Make the constructor private so no other class can create a new connection
     private DatabaseConnection() {
