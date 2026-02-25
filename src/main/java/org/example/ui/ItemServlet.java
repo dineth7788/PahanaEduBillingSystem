@@ -15,30 +15,33 @@ public class ItemServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        // 1. Grab inputs from the item.jsp form
         String itemName = request.getParameter("itemName");
-        double price = Double.parseDouble(request.getParameter("price"));
-        int stock = Integer.parseInt(request.getParameter("stock"));
+        String priceStr = request.getParameter("price");
+        String stockStr = request.getParameter("stock");
 
-        // 2. Map data to the Item model
-        Item newItem = new Item();
-        newItem.setItemName(itemName);
-        newItem.setPrice(price);
-        newItem.setStockQuantity(stock);
+        try {
+            // BACKEND VALIDATION: Securely attempt to parse the numbers
+            double price = Double.parseDouble(priceStr);
+            int stock = Integer.parseInt(stockStr);
 
-        // 3. Send to DAO to save in MySQL
-        ItemDAO itemDAO = new ItemDAO();
-        boolean isSaved = itemDAO.addItem(newItem);
+            Item newItem = new Item();
+            newItem.setItemName(itemName);
+            newItem.setPrice(price);
+            newItem.setStockQuantity(stock);
 
-        // 4. Return success or failure message
-        if (isSaved) {
-            request.setAttribute("message", "Success! '" + itemName + "' added to inventory.");
-        } else {
-            request.setAttribute("message", "Error: Could not save the item.");
+            ItemDAO itemDAO = new ItemDAO();
+            boolean isSaved = itemDAO.addItem(newItem);
+
+            if (isSaved) {
+                request.setAttribute("message", "Success! '" + itemName + "' added to inventory.");
+            } else {
+                request.setAttribute("error", "Error: Could not save the item.");
+            }
+        } catch (NumberFormatException e) {
+            // Catches any letters typed into the number boxes
+            request.setAttribute("error", "Failed: Price and Stock must be valid numbers!");
         }
 
-        // Keep the user on the same page to see the message or add another item
         request.getRequestDispatcher("item.jsp").forward(request, response);
     }
 }
