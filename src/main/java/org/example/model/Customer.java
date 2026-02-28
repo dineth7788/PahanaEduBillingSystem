@@ -33,6 +33,4 @@ public class Customer {
     public String getTelephoneNumber() { return telephoneNumber; }
     public void setTelephoneNumber(String telephoneNumber) { this.telephoneNumber = telephoneNumber; }
 
-    public int getUnitsConsumed() { return unitsConsumed; }
-    public void setUnitsConsumed(int unitsConsumed) { this.unitsConsumed = unitsConsumed; }
 }

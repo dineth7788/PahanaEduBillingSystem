@@ -13,14 +13,14 @@ public class CustomerDAO {
         Connection conn = DatabaseConnection.getInstance().getConnection();
 
         // SQL query to insert data. The '?' prevents SQL injection attacks!
-        String sql = "INSERT INTO Customer (name, address, telephone_number, units_consumed) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO customer (name, address, telephone_number) VALUES (?, ?, ?)";
 
         try {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, customer.getName());
             pstmt.setString(2, customer.getAddress());
             pstmt.setString(3, customer.getTelephoneNumber());
-            pstmt.setInt(4, customer.getUnitsConsumed());
+
 
             int rowsAffected = pstmt.executeUpdate();
             if (rowsAffected > 0) {
@@ -52,7 +52,7 @@ public class CustomerDAO {
                 customer.setName(rs.getString("name"));
                 customer.setAddress(rs.getString("address"));
                 customer.setTelephoneNumber(rs.getString("telephone_number"));
-                customer.setUnitsConsumed(rs.getInt("units_consumed"));
+
             }
         } catch (java.sql.SQLException e) {
             System.out.println("Error fetching customer: " + e.getMessage());

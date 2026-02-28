@@ -49,10 +49,6 @@
             <label for="telephone">Telephone Number:</label>
             <input type="tel" id="telephone" name="telephone" pattern="[0-9]+" title="Please enter numbers only" required>
         </div>
-        <div class="form-group">
-            <label for="units">Units Consumed:</label>
-            <input type="number" id="units" name="units" min="0" required>
-        </div>
         <button type="submit">Save Customer</button>
         <a href="dashboard.jsp" class="back-btn">Back to Dashboard</a>
     </form>

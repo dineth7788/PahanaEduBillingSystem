@@ -18,7 +18,7 @@ public class CustomerServlet extends HttpServlet {
         String name = request.getParameter("name");
         String address = request.getParameter("address");
         String telephone = request.getParameter("telephone");
-        String unitsStr = request.getParameter("units");
+
 
         // BACKEND VALIDATION 1: Check if telephone contains ONLY numbers using Regex
         if (!telephone.matches("[0-9]+")) {
@@ -29,13 +29,12 @@ public class CustomerServlet extends HttpServlet {
 
         try {
             // BACKEND VALIDATION 2: Try to convert units to a number
-            int units = Integer.parseInt(unitsStr);
+
 
             Customer newCustomer = new Customer();
             newCustomer.setName(name);
             newCustomer.setAddress(address);
             newCustomer.setTelephoneNumber(telephone);
-            newCustomer.setUnitsConsumed(units);
 
             CustomerDAO customerDAO = new CustomerDAO();
             boolean isSaved = customerDAO.addCustomer(newCustomer);
