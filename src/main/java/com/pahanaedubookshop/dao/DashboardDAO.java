@@ -52,4 +52,25 @@ public class DashboardDAO {
         }
         return total;
     }
+
+
+    // NEW FUNCTION: Fetch items that are running low on stock (Quantity <= 5)
+    public java.util.List<com.pahanaedubookshop.model.Item> getLowStockItems() {
+        java.util.List<com.pahanaedubookshop.model.Item> lowStockList = new java.util.ArrayList<>();
+        String sql = "SELECT * FROM items WHERE quantity <= 5 ORDER BY quantity ASC LIMIT 5";
+        try (java.sql.Connection conn = DatabaseUtil.getConnection();
+             java.sql.Statement stmt = conn.createStatement();
+             java.sql.ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                com.pahanaedubookshop.model.Item item = new com.pahanaedubookshop.model.Item();
+                item.setItemId(rs.getInt("item_id"));
+                item.setItemName(rs.getString("item_name"));
+                item.setQuantity(rs.getInt("quantity"));
+                lowStockList.add(item);
+            }
+        } catch (java.sql.SQLException e) {
+            e.printStackTrace();
+        }
+        return lowStockList;
+    }
 }

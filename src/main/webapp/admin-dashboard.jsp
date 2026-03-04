@@ -1,7 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.pahanaedubookshop.dao.DashboardDAO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.pahanaedubookshop.model.Item" %>
 <%
-    // SECURE ACCESS: Check if the user is logged in.
+    // SECURE ACCESS
     if (session.getAttribute("loggedUser") == null) {
         response.sendRedirect("login.jsp");
         return;
@@ -13,6 +15,9 @@
     int totalCustomers = dashboardDAO.getTotalCustomers();
     int totalOrders = dashboardDAO.getTotalOrders();
     double totalRevenue = dashboardDAO.getTotalRevenue();
+
+    // Fetch our new Low Stock feature
+    List<Item> lowStockItems = dashboardDAO.getLowStockItems();
 %>
 
 <!DOCTYPE html>
@@ -63,9 +68,7 @@
                     <h2><%= totalCustomers %></h2>
                     <p>Registered customers</p>
                 </div>
-                <div class="card-icon icon-blue">
-                    <i class="fa-solid fa-user-group"></i>
-                </div>
+                <div class="card-icon icon-blue"><i class="fa-solid fa-user-group"></i></div>
             </div>
 
             <div class="summary-card card-green">
@@ -74,9 +77,7 @@
                     <h2>Rs. <%= String.format("%.2f", totalRevenue) %></h2>
                     <p>From all sales</p>
                 </div>
-                <div class="card-icon icon-green">
-                    <i class="fa-solid fa-dollar-sign"></i>
-                </div>
+                <div class="card-icon icon-green"><i class="fa-solid fa-dollar-sign"></i></div>
             </div>
 
             <div class="summary-card card-cyan">
@@ -85,10 +86,40 @@
                     <h2><%= totalOrders %></h2>
                     <p>Completed orders</p>
                 </div>
-                <div class="card-icon icon-cyan">
-                    <i class="fa-solid fa-receipt"></i>
-                </div>
+                <div class="card-icon icon-cyan"><i class="fa-solid fa-receipt"></i></div>
             </div>
+        </div>
+
+        <div class="dashboard-widgets">
+
+            <div class="widget-card">
+                <div class="widget-header">
+                    <i class="fa-solid fa-triangle-exclamation" style="color: #dc3545;"></i> Inventory Alerts
+                </div>
+
+                <% if (lowStockItems != null && !lowStockItems.isEmpty()) {
+                    for (Item item : lowStockItems) { %>
+                <div class="alert-row">
+                    <span class="alert-name"><i class="fa-solid fa-book" style="color: #888; margin-right: 8px;"></i> <%= item.getItemName() %></span>
+                    <span class="alert-qty"><%= item.getQuantity() %> Left</span>
+                </div>
+                <%  }
+                } else { %>
+                <p style="color: #198754; text-align: center; margin-top: 20px;">
+                    <i class="fa-solid fa-circle-check"></i> All items are sufficiently stocked!
+                </p>
+                <% } %>
+            </div>
+
+            <div class="widget-card">
+                <div class="widget-header">
+                    <i class="fa-solid fa-bolt" style="color: #ffc107;"></i> Quick Actions
+                </div>
+                <a href="order" class="quick-action-btn"><i class="fa-solid fa-cart-plus"></i> New Order</a>
+                <a href="customers" class="quick-action-btn"><i class="fa-solid fa-user-plus"></i> Add Customer</a>
+                <a href="items" class="quick-action-btn"><i class="fa-solid fa-box-open"></i> Update Stock</a>
+            </div>
+
         </div>
 
     </main>

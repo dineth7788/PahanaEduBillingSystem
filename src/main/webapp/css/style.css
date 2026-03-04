@@ -1,4 +1,6 @@
-/* webapp/css/style.css */
+/* =========================================
+   GLOBAL & LOGIN STYLES (Monochrome)
+   ========================================= */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8f9fa; /* Light grey background to make the white card pop */
@@ -14,12 +16,12 @@ body {
     width: 350px;
     padding: 40px 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft shadow like the image */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 .login-title {
     text-align: center;
-    color: #1877f2; /* Exact blue from the image */
+    color: #000000; /* Replaced Blue with Black */
     font-size: 32px;
     font-weight: bold;
     margin-top: 0;
@@ -37,7 +39,7 @@ body {
     border: 1px solid #dcdcdc;
     border-radius: 4px;
     font-size: 15px;
-    color: #333;
+    color: #000;
     box-sizing: border-box;
     outline: none;
     transition: border-color 0.3s;
@@ -48,7 +50,7 @@ body {
 }
 
 .input-group input:focus {
-    border-color: #1877f2;
+    border-color: #000000; /* Focus is now black */
 }
 
 /* Eye icon for password */
@@ -76,7 +78,7 @@ body {
 
 .sign-in-btn {
     width: 100%;
-    background-color: #1877f2; /* Exact blue from the image */
+    background-color: #000000; /* Replaced Blue with Black */
     color: white;
     border: none;
     padding: 12px;
@@ -88,7 +90,7 @@ body {
 }
 
 .sign-in-btn:hover {
-    background-color: #166fe5;
+    background-color: #333333; /* Dark grey hover */
 }
 
 .register-link {
@@ -99,20 +101,25 @@ body {
 }
 
 .register-link a {
-    color: #1877f2;
-    text-decoration: none;
+    color: #000000;
+    text-decoration: underline;
+    font-weight: bold;
 }
 
 .register-link a:hover {
-    text-decoration: underline;
+    color: #555555;
 }
 
-/* Error message styling for later when we add Java */
+/* Error message styling */
 .error-msg {
-    color: #dc3545;
+    color: #000000; /* Removed red, made bold for emphasis */
+    font-weight: bold;
     font-size: 14px;
     text-align: center;
     margin-bottom: 15px;
+    border: 1px solid #000;
+    padding: 8px;
+    border-radius: 4px;
 }
 
 /* =========================================
@@ -122,7 +129,7 @@ body {
 .dashboard-layout {
     display: flex;
     height: 100vh;
-    background-color: #f4f6f9; /* Light grey background from screenshot */
+    background-color: #f4f6f9;
     width: 100%;
 }
 
@@ -139,7 +146,7 @@ body {
     padding: 20px 25px;
     font-size: 20px;
     font-weight: bold;
-    color: #333;
+    color: #000;
 }
 
 .sidebar-menu {
@@ -171,12 +178,14 @@ body {
 
 /* Active state for the 'Home' button */
 .sidebar-menu a.active {
-    background-color: #f0f4ff;
-    color: #1877f2;
+    background-color: #e0e0e0; /* Grey instead of light blue */
+    color: #000000;
+    font-weight: bold;
 }
 
 .sidebar-menu a:hover:not(.active) {
-    background-color: #f8f9fa;
+    background-color: #f0f0f0;
+    color: #000;
 }
 
 /* --- Main Content Area --- */
@@ -204,7 +213,7 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #333;
+    color: #000;
     font-weight: 500;
     cursor: pointer;
 }
@@ -227,92 +236,36 @@ body {
     align-items: flex-start;
 }
 
-/* Colored left borders exactly like the image */
-.card-blue { border-left: 4px solid #1877f2; }
-.card-green { border-left: 4px solid #28a745; }
-.card-cyan { border-left: 4px solid #0dcaf0; }
+/* Grayscale left borders */
+.card-blue { border-left: 4px solid #000000; }  /* Black */
+.card-green { border-left: 4px solid #555555; } /* Dark Grey */
+.card-cyan { border-left: 4px solid #999999; }  /* Light Grey */
 
 .card-info h3 {
     margin: 0 0 10px 0;
     font-size: 14px;
-    color: #666;
+    color: #555;
     font-weight: 500;
 }
 
 .card-info h2 {
     margin: 0 0 5px 0;
     font-size: 28px;
-    color: #222;
+    color: #000;
 }
 
 .card-info p {
     margin: 0;
     font-size: 13px;
-    color: #888;
+    color: #777;
 }
 
 .card-icon {
     font-size: 28px;
 }
-.icon-blue { color: #1877f2; }
-.icon-green { color: #28a745; }
-.icon-cyan { color: #0dcaf0; }
-
-/* --- Recent Activity --- */
-.recent-activity {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-    padding: 25px;
-}
-
-.recent-activity h3 {
-    margin: 0 0 20px 0;
-    font-size: 18px;
-    color: #333;
-}
-
-.activity-list {
-    display: flex;
-    flex-direction: column;
-}
-
-.activity-item {
-    display: flex;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.activity-item:last-child {
-    border-bottom: none;
-}
-
-.activity-icon {
-    width: 40px;
-    font-size: 18px;
-}
-
-.activity-details {
-    flex: 1;
-}
-
-.activity-details p {
-    margin: 0;
-    color: #333;
-    font-weight: 500;
-    font-size: 14px;
-}
-
-.activity-details span {
-    color: #888;
-    font-size: 13px;
-}
-
-.activity-time {
-    color: #888;
-    font-size: 13px;
-}
+.icon-blue { color: #000000; }
+.icon-green { color: #555555; }
+.icon-cyan { color: #999999; }
 
 /* =========================================
    CUSTOMER PAGE STYLES
@@ -324,11 +277,11 @@ body {
     margin-bottom: 20px;
 }
 .manage-header h2 {
-    color: #1877f2;
+    color: #000000;
     margin: 0;
 }
 .total-badge {
-    background-color: #1877f2;
+    background-color: #000000;
     color: white;
     padding: 5px 15px;
     border-radius: 20px;
@@ -340,14 +293,13 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     border: 1px solid #eaedf1;
     margin-bottom: 30px;
-    /* Removed overflow: hidden; which was causing the cut-off! */
 }
 .form-header {
     background: #f8f9fa;
     padding: 15px 20px;
     border-bottom: 1px solid #eaedf1;
-    font-weight: 500;
-    color: #333;
+    font-weight: bold;
+    color: #000;
 }
 .form-body { padding: 20px; }
 .form-grid {
@@ -362,7 +314,8 @@ body {
 }
 .form-group label {
     font-size: 13px;
-    color: #666;
+    color: #444;
+    font-weight: bold;
     margin-bottom: 5px;
 }
 .form-group input, .form-group textarea {
@@ -374,29 +327,39 @@ body {
 .full-width { grid-column: 1 / -1; }
 .form-actions {
     padding: 20px;
-    background-color: #f8f9fa; /* Adds a nice grey background to the buttons */
+    background-color: #f8f9fa;
     border-top: 1px solid #eaedf1;
     display: flex;
     gap: 15px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
+
 .btn-primary {
-    background-color: #1877f2;
+    background-color: #000000;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: bold;
+    transition: 0.2s;
+}
+.btn-primary:hover {
+    background-color: #333333;
 }
 .btn-secondary {
     background-color: #ffffff;
-    color: #555;
-    border: 1px solid #ccc;
+    color: #000000;
+    border: 1px solid #000000;
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+.btn-secondary:hover {
+    background-color: #f0f0f0;
 }
 
 /* Table Styles */
@@ -414,8 +377,8 @@ body {
     border-bottom: 1px solid #eaedf1;
 }
 .data-table th {
-    background-color: #f8f9fa;
-    color: #333;
+    background-color: #000000;
+    color: #ffffff;
     font-weight: 600;
 }
 .action-btn {
@@ -424,28 +387,33 @@ body {
     text-decoration: none;
     font-size: 13px;
     margin-right: 5px;
+    font-weight: bold;
+    border: 1px solid #000;
 }
-.edit-btn { background: #ffc107; color: #000; }
-.delete-btn { background: #dc3545; color: #fff; }
+.edit-btn { background: #ffffff; color: #000; }
+.edit-btn:hover { background: #e0e0e0; }
+.delete-btn { background: #000000; color: #fff; }
+.delete-btn:hover { background: #333333; }
 
-/* Special Grid for the Items page matching the screenshot */
+/* Special Grid for the Items page */
 .form-grid-items {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr; /* Item Name takes up 2x the space of the others */
+    grid-template-columns: 2fr 1fr 1fr;
     gap: 20px;
 }
 .refresh-btn {
     font-size: 13px;
     padding: 6px 12px;
     background: transparent;
-    color: #1877f2;
-    border: 1px solid #1877f2;
+    color: #000000;
+    border: 1px solid #000000;
     border-radius: 4px;
     cursor: pointer;
     text-decoration: none;
+    font-weight: bold;
 }
 .refresh-btn:hover {
-    background: #f0f4ff;
+    background: #f0f0f0;
 }
 
 /* =========================================
@@ -465,15 +433,16 @@ body {
 .cart-total h3 {
     margin: 0;
     font-size: 14px;
-    color: #666;
+    color: #555;
 }
 .cart-total h2 {
     margin: 0;
-    color: #1877f2;
+    color: #000000;
     font-size: 28px;
 }
-.btn-success { background: #198754; color: #fff; border: none; padding: 12px 25px; border-radius: 4px; font-weight: bold; cursor: pointer; }
-.btn-success:hover { background: #157347; }
+.btn-success { background: #000000; color: #fff; border: none; padding: 12px 25px; border-radius: 4px; font-weight: bold; cursor: pointer; transition: 0.2s;}
+.btn-success:hover { background: #333333; }
+.btn-success:disabled { background: #cccccc; cursor: not-allowed; }
 
 /* Invoice Specific */
 .invoice-card {
@@ -483,26 +452,27 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     max-width: 800px;
     margin: 0 auto;
+    border: 1px solid #000; /* Added subtle border for B&W theme */
 }
 .invoice-header {
     text-align: center;
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 2px solid #000000; /* Stronger border */
     padding-bottom: 20px;
     margin-bottom: 30px;
 }
-.invoice-header h1 { margin: 0; color: #333; letter-spacing: 1px; }
-.invoice-header p { color: #888; margin-top: 5px; }
+.invoice-header h1 { margin: 0; color: #000; letter-spacing: 1px; }
+.invoice-header p { color: #555; margin-top: 5px; font-weight: bold;}
 .invoice-details {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
 }
 .invoice-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
-.invoice-table th { background: #222; color: #fff; padding: 12px; text-align: left; }
-.invoice-table td { padding: 12px; border-bottom: 1px solid #eee; }
-.invoice-total { text-align: right; font-size: 20px; font-weight: bold; margin-top: 20px; }
-.status-paid { color: #198754; font-weight: bold; }
-.success-toast { background: #198754; color: white; padding: 15px 20px; border-radius: 4px; margin-bottom: 20px; display: flex; justify-content: space-between; }
+.invoice-table th { background: #000; color: #fff; padding: 12px; text-align: left; }
+.invoice-table td { padding: 12px; border-bottom: 1px solid #ccc; color: #000; }
+.invoice-total { text-align: right; font-size: 20px; font-weight: bold; margin-top: 20px; color: #000;}
+.status-paid { color: #000; font-weight: bold; border: 1px solid #000; padding: 2px 6px; border-radius: 4px;}
+.success-toast { background: #000000; color: white; padding: 15px 20px; border-radius: 4px; margin-bottom: 20px; display: flex; justify-content: space-between; font-weight: bold; }
 @media print {
     .sidebar, .top-header, .print-hide { display: none !important; }
     .main-content { padding: 0; margin: 0; background: white; }
@@ -528,27 +498,27 @@ body {
 }
 
 .help-header h2 {
-    color: #1877f2;
+    color: #000000;
     margin-bottom: 10px;
 }
 
 .help-header p {
-    color: #666;
+    color: #555;
     font-size: 15px;
 }
 
 /* The Accordion Buttons */
 .accordion {
     background-color: #f8f9fa;
-    color: #333;
+    color: #000;
     cursor: pointer;
     padding: 18px 20px;
     width: 100%;
-    border: 1px solid #eaedf1;
+    border: 1px solid #dcdcdc;
     text-align: left;
     outline: none;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: bold;
     transition: 0.3s;
     border-radius: 6px;
     margin-bottom: 10px;
@@ -558,9 +528,9 @@ body {
 }
 
 .accordion:hover, .accordion.active {
-    background-color: #eef2f6;
-    color: #1877f2;
-    border-color: #dbe4ee;
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #000000;
 }
 
 /* Arrow Icon Animation */
@@ -579,12 +549,13 @@ body {
     overflow: hidden;
     transition: max-height 0.3s ease-out;
     font-size: 14px;
-    color: #555;
+    color: #333;
     line-height: 1.6;
 }
 
 .panel p {
     margin: 15px 0;
+    font-weight: 500;
 }
 
 .panel ul {
@@ -600,12 +571,12 @@ body {
    USER PROFILE DROPDOWN STYLES
    ========================================= */
 .user-profile {
-    position: relative; /* Required for the dropdown to attach to it */
+    position: relative;
     padding: 10px 0;
 }
 
 .dropdown-menu {
-    display: none; /* Hidden by default */
+    display: none;
     position: absolute;
     top: 100%;
     right: 0;
@@ -615,28 +586,99 @@ body {
     border-radius: 6px;
     overflow: hidden;
     z-index: 1000;
-    border: 1px solid #eaedf1;
+    border: 1px solid #000; /* Distinct border */
 }
 
 .dropdown-menu a {
-    color: #333;
+    color: #000;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     font-size: 14px;
+    font-weight: bold;
     transition: background 0.2s;
 }
 
 .dropdown-menu a:hover {
-    background-color: #fef0f0;
-    color: #dc3545; /* Turns red when hovered to indicate "Exit" */
+    background-color: #000000;
+    color: #ffffff;
 }
 
 .dropdown-menu a i {
     margin-right: 8px;
 }
 
-/* Magically show the dropdown when hovering over the profile area */
 .user-profile:hover .dropdown-menu {
     display: block;
+}
+
+/* =========================================
+   NEW DASHBOARD WIDGETS LAYOUT
+   ========================================= */
+.dashboard-widgets {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.widget-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border: 1px solid #dcdcdc;
+}
+
+.widget-header {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #000; /* Thicker black border */
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Low Stock Alert Styles */
+.alert-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.alert-row:last-child { border-bottom: none; }
+.alert-name { color: #000; font-weight: bold; font-size: 14px;}
+.alert-qty {
+    background: #000000; /* Replaced red with black */
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Quick Action Button Styles */
+.quick-action-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #000000; /* Black borders */
+    border-radius: 6px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+.quick-action-btn:hover {
+    background: #000000;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
