@@ -1,0 +1,642 @@
+/* webapp/css/style.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa; /* Light grey background to make the white card pop */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-card {
+    background-color: #ffffff;
+    width: 350px;
+    padding: 40px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft shadow like the image */
+}
+
+.login-title {
+    text-align: center;
+    color: #1877f2; /* Exact blue from the image */
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    font-size: 15px;
+    color: #333;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group input::placeholder {
+    color: #757575;
+}
+
+.input-group input:focus {
+    border-color: #1877f2;
+}
+
+/* Eye icon for password */
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #757575;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+.remember-me input {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.sign-in-btn {
+    width: 100%;
+    background-color: #1877f2; /* Exact blue from the image */
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sign-in-btn:hover {
+    background-color: #166fe5;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+.register-link a {
+    color: #1877f2;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Error message styling for later when we add Java */
+.error-msg {
+    color: #dc3545;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   ADMIN DASHBOARD STYLES
+   ========================================= */
+
+.dashboard-layout {
+    display: flex;
+    height: 100vh;
+    background-color: #f4f6f9; /* Light grey background from screenshot */
+    width: 100%;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+    width: 260px;
+    background-color: #ffffff;
+    border-right: 1px solid #eaedf1;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 20px 25px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0 15px;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    margin-bottom: 5px;
+}
+
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: #555;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sidebar-menu a i {
+    width: 25px;
+    font-size: 16px;
+}
+
+/* Active state for the 'Home' button */
+.sidebar-menu a.active {
+    background-color: #f0f4ff;
+    color: #1877f2;
+}
+
+.sidebar-menu a:hover:not(.active) {
+    background-color: #f8f9fa;
+}
+
+/* --- Main Content Area --- */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 20px 30px;
+}
+
+/* Top Header */
+.top-header {
+    background-color: #ffffff;
+    padding: 15px 25px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    margin-bottom: 25px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* --- Summary Cards --- */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.summary-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Colored left borders exactly like the image */
+.card-blue { border-left: 4px solid #1877f2; }
+.card-green { border-left: 4px solid #28a745; }
+.card-cyan { border-left: 4px solid #0dcaf0; }
+
+.card-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.card-info h2 {
+    margin: 0 0 5px 0;
+    font-size: 28px;
+    color: #222;
+}
+
+.card-info p {
+    margin: 0;
+    font-size: 13px;
+    color: #888;
+}
+
+.card-icon {
+    font-size: 28px;
+}
+.icon-blue { color: #1877f2; }
+.icon-green { color: #28a745; }
+.icon-cyan { color: #0dcaf0; }
+
+/* --- Recent Activity --- */
+.recent-activity {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    padding: 25px;
+}
+
+.recent-activity h3 {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    width: 40px;
+    font-size: 18px;
+}
+
+.activity-details {
+    flex: 1;
+}
+
+.activity-details p {
+    margin: 0;
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.activity-details span {
+    color: #888;
+    font-size: 13px;
+}
+
+.activity-time {
+    color: #888;
+    font-size: 13px;
+}
+
+/* =========================================
+   CUSTOMER PAGE STYLES
+   ========================================= */
+.manage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.manage-header h2 {
+    color: #1877f2;
+    margin: 0;
+}
+.total-badge {
+    background-color: #1877f2;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+.form-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid #eaedf1;
+    margin-bottom: 30px;
+    /* Removed overflow: hidden; which was causing the cut-off! */
+}
+.form-header {
+    background: #f8f9fa;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eaedf1;
+    font-weight: 500;
+    color: #333;
+}
+.form-body { padding: 20px; }
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+.form-group label {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 5px;
+}
+.form-group input, .form-group textarea {
+    padding: 10px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    font-family: inherit;
+}
+.full-width { grid-column: 1 / -1; }
+.form-actions {
+    padding: 20px;
+    background-color: #f8f9fa; /* Adds a nice grey background to the buttons */
+    border-top: 1px solid #eaedf1;
+    display: flex;
+    gap: 15px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.btn-primary {
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+.btn-secondary {
+    background-color: #ffffff;
+    color: #555;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Table Styles */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.data-table th, .data-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eaedf1;
+}
+.data-table th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: 600;
+}
+.action-btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    margin-right: 5px;
+}
+.edit-btn { background: #ffc107; color: #000; }
+.delete-btn { background: #dc3545; color: #fff; }
+
+/* Special Grid for the Items page matching the screenshot */
+.form-grid-items {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* Item Name takes up 2x the space of the others */
+    gap: 20px;
+}
+.refresh-btn {
+    font-size: 13px;
+    padding: 6px 12px;
+    background: transparent;
+    color: #1877f2;
+    border: 1px solid #1877f2;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.refresh-btn:hover {
+    background: #f0f4ff;
+}
+
+/* =========================================
+   PLACE ORDER & INVOICE STYLES
+   ========================================= */
+.cart-summary-box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #eaedf1;
+    margin-top: 20px;
+    gap: 20px;
+}
+.cart-total h3 {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+.cart-total h2 {
+    margin: 0;
+    color: #1877f2;
+    font-size: 28px;
+}
+.btn-success { background: #198754; color: #fff; border: none; padding: 12px 25px; border-radius: 4px; font-weight: bold; cursor: pointer; }
+.btn-success:hover { background: #157347; }
+
+/* Invoice Specific */
+.invoice-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    max-width: 800px;
+    margin: 0 auto;
+}
+.invoice-header {
+    text-align: center;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+.invoice-header h1 { margin: 0; color: #333; letter-spacing: 1px; }
+.invoice-header p { color: #888; margin-top: 5px; }
+.invoice-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.invoice-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+.invoice-table th { background: #222; color: #fff; padding: 12px; text-align: left; }
+.invoice-table td { padding: 12px; border-bottom: 1px solid #eee; }
+.invoice-total { text-align: right; font-size: 20px; font-weight: bold; margin-top: 20px; }
+.status-paid { color: #198754; font-weight: bold; }
+.success-toast { background: #198754; color: white; padding: 15px 20px; border-radius: 4px; margin-bottom: 20px; display: flex; justify-content: space-between; }
+@media print {
+    .sidebar, .top-header, .print-hide { display: none !important; }
+    .main-content { padding: 0; margin: 0; background: white; }
+    .invoice-card { box-shadow: none; border: none; padding: 0; }
+}
+
+/* =========================================
+   HELP SECTION STYLES
+   ========================================= */
+.help-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #eaedf1;
+}
+
+.help-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.help-header h2 {
+    color: #1877f2;
+    margin-bottom: 10px;
+}
+
+.help-header p {
+    color: #666;
+    font-size: 15px;
+}
+
+/* The Accordion Buttons */
+.accordion {
+    background-color: #f8f9fa;
+    color: #333;
+    cursor: pointer;
+    padding: 18px 20px;
+    width: 100%;
+    border: 1px solid #eaedf1;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion:hover, .accordion.active {
+    background-color: #eef2f6;
+    color: #1877f2;
+    border-color: #dbe4ee;
+}
+
+/* Arrow Icon Animation */
+.accordion i {
+    transition: transform 0.3s ease;
+}
+.accordion.active i {
+    transform: rotate(180deg);
+}
+
+/* The Hidden Content Panel */
+.panel {
+    padding: 0 20px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.panel p {
+    margin: 15px 0;
+}
+
+.panel ul {
+    margin-top: 0;
+    padding-left: 20px;
+}
+
+.panel li {
+    margin-bottom: 8px;
+}
+
+/* =========================================
+   USER PROFILE DROPDOWN STYLES
+   ========================================= */
+.user-profile {
+    position: relative; /* Required for the dropdown to attach to it */
+    padding: 10px 0;
+}
+
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #ffffff;
+    min-width: 150px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    z-index: 1000;
+    border: 1px solid #eaedf1;
+}
+
+.dropdown-menu a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #fef0f0;
+    color: #dc3545; /* Turns red when hovered to indicate "Exit" */
+}
+
+.dropdown-menu a i {
+    margin-right: 8px;
+}
+
+/* Magically show the dropdown when hovering over the profile area */
+.user-profile:hover .dropdown-menu {
+    display: block;
+}
