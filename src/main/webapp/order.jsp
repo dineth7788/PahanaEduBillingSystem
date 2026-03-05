@@ -79,7 +79,7 @@
                         <input type="number" id="qtyInput" value="1" min="1" style="width: 100%;">
                     </div>
                     <div class="form-group" style="margin: 0;">
-                        <label>Unit Price ($)</label>
+                        <label>Unit Price (Rs)</label>
                         <input type="text" id="priceInput" readonly style="width: 100%; background: #f0f0f0;">
                     </div>
                     <button type="button" class="btn-primary" onclick="addToCart()"><i class="fa-solid fa-plus"></i> Add</button>
@@ -105,7 +105,7 @@
             <div class="cart-summary-box print-hide">
                 <div class="cart-total">
                     <h3>Total Amount</h3>
-                    <h2 id="netTotalDisplay">$0.00</h2>
+                    <h2 id="netTotalDisplay">Rs. 0.00</h2>
                 </div>
                 <button type="submit" class="btn-success" id="placeOrderBtn" disabled>
                     <i class="fa-regular fa-circle-check"></i> Place Order
@@ -141,8 +141,8 @@
             <tr id="\${rowId}">
                 <td>\${itemName}</td>
                 <td>\${qty}</td>
-                <td>$\${price.toFixed(2)}</td>
-                <td>$\${lineTotal.toFixed(2)}</td>
+                <td>Rs. \${price.toFixed(2)}</td>
+                <td>Rs. \${lineTotal.toFixed(2)}</td>
                 <td><button type="button" class="action-btn delete-btn" onclick="removeFromCart('\${rowId}', \${lineTotal})"><i class="fa-solid fa-trash"></i></button></td>
             </tr>
         `;
@@ -159,7 +159,7 @@
 
         // Update Total
         netTotal += lineTotal;
-        document.getElementById("netTotalDisplay").innerText = "$" + netTotal.toFixed(2);
+        document.getElementById("netTotalDisplay").innerText = "Rs. " + netTotal.toFixed(2);
 
         // Enable Place Order Button
         document.getElementById("placeOrderBtn").disabled = false;
@@ -175,7 +175,7 @@
         document.getElementById('hidden_' + rowId).remove();
 
         netTotal -= lineTotal;
-        document.getElementById("netTotalDisplay").innerText = "$" + Math.abs(netTotal).toFixed(2);
+        document.getElementById("netTotalDisplay").innerText = "Rs. " + Math.abs(netTotal).toFixed(2);
 
         if (netTotal <= 0) document.getElementById("placeOrderBtn").disabled = true;
     }

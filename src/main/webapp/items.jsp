@@ -71,11 +71,11 @@
                         </div>
                         <div class="form-group">
                             <label>Price (Rs.)</label>
-                            <input type="number" step="0.01" name="price" value="<%= isEdit ? editItem.getPrice() : "" %>" placeholder="Price (Rs.)" required>
+                            <input type="number" step="0.01" min="0.01" name="price" value="<%= isEdit ? editItem.getPrice() : "" %>" placeholder="Price (Rs.)" required>
                         </div>
                         <div class="form-group">
                             <label>Quantity</label>
-                            <input type="number" name="quantity" value="<%= isEdit ? editItem.getQuantity() : "" %>" placeholder="Quantity" min="0" required>
+                            <input type="number" name="quantity" value="<%= isEdit ? editItem.getQuantity() : "" %>" placeholder="Quantity" min="1" required>
                         </div>
                     </div>
                 </div>

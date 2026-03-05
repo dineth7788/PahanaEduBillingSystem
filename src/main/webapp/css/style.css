@@ -218,7 +218,7 @@ body {
     cursor: pointer;
 }
 
-/* --- Summary Cards --- */
+/* --- Summary Cards (NEW BOLD DESIGN) --- */
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -229,43 +229,65 @@ body {
 .summary-card {
     background-color: #ffffff;
     padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    border-radius: 12px;
+    border: 2px solid #000000; /* Thick black border */
+    box-shadow: 6px 6px 0px #000000; /* Hard solid drop shadow */
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
 }
 
-/* Grayscale left borders */
-.card-blue { border-left: 4px solid #000000; }  /* Black */
-.card-green { border-left: 4px solid #555555; } /* Dark Grey */
-.card-cyan { border-left: 4px solid #999999; }  /* Light Grey */
+/* The interactive "press down" effect on hover */
+.summary-card:hover {
+    transform: translate(4px, 4px);
+    box-shadow: 2px 2px 0px #000000;
+}
+
+/* Reset the old left-borders since we are using full borders now */
+.card-blue, .card-green, .card-cyan {
+    border-left: none;
+}
 
 .card-info h3 {
-    margin: 0 0 10px 0;
-    font-size: 14px;
+    margin: 0 0 8px 0;
+    font-size: 13px;
     color: #555;
-    font-weight: 500;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .card-info h2 {
     margin: 0 0 5px 0;
-    font-size: 28px;
-    color: #000;
+    font-size: 38px;
+    color: #000000;
+    font-weight: 900;
 }
 
 .card-info p {
     margin: 0;
     font-size: 13px;
     color: #777;
+    font-weight: 500;
 }
 
+/* Put the icons inside a bold black circle */
 .card-icon {
-    font-size: 28px;
+    width: 65px;
+    height: 65px;
+    background-color: #000000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
 }
-.icon-blue { color: #000000; }
-.icon-green { color: #555555; }
-.icon-cyan { color: #999999; }
+
+/* Force the icons inside the black circle to be white */
+.icon-blue i, .icon-green i, .icon-cyan i {
+    color: #ffffff !important;
+}
 
 /* =========================================
    CUSTOMER PAGE STYLES

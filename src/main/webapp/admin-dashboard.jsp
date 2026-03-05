@@ -77,7 +77,7 @@
                     <h2>Rs. <%= String.format("%.2f", totalRevenue) %></h2>
                     <p>From all sales</p>
                 </div>
-                <div class="card-icon icon-green"><i class="fa-solid fa-dollar-sign"></i></div>
+                <div class="card-icon icon-green"><i class="fa-solid fa-rupee-sign"></i></div>
             </div>
 
             <div class="summary-card card-cyan">

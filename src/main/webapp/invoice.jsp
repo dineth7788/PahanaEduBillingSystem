@@ -96,15 +96,15 @@
                     <tr>
                         <td>${item.itemName}</td>
                         <td style="text-align: center;">${item.quantity}</td>
-                        <td style="text-align: right;">$<fmt:formatNumber value="${item.unitPrice}" type="number" minFractionDigits="2"/></td>
-                        <td style="text-align: right;">$<fmt:formatNumber value="${item.totalPrice}" type="number" minFractionDigits="2"/></td>
+                        <td style="text-align: right;">Rs. <fmt:formatNumber value="${item.unitPrice}" type="number" minFractionDigits="2"/></td>
+                        <td style="text-align: right;">Rs. <fmt:formatNumber value="${item.totalPrice}" type="number" minFractionDigits="2"/></td>
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
 
             <div class="invoice-total">
-                Grand Total: $<fmt:formatNumber value="${bill.totalAmount}" type="number" minFractionDigits="2"/>
+                Grand Total: Rs. <fmt:formatNumber value="${bill.totalAmount}" type="number" minFractionDigits="2"/>
             </div>
         </div>
 
